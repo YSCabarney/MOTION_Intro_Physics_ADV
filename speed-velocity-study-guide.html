@@ -130,9 +130,10 @@
   details p{margin-top:12px;margin-bottom:0;}
 
   .graph-card{border:1px solid var(--paper-line);background:#fff;padding:14px 16px;margin:18px 0;}
+  .graph-card svg{max-width:460px;display:block;}
   .graph-card .gtitle{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--blue);margin-bottom:6px;text-transform:uppercase;}
-  .graph-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-  @media(max-width:560px){.graph-grid{grid-template-columns:1fr;}}
+  .graph-grid{display:block;}
+  .graph-grid .graph-card{margin-bottom:16px;}
 
   ul{padding-left:20px;}
   li{margin-bottom:8px;max-width:60ch;}
@@ -160,7 +161,7 @@
   <p>Think about a car ride. If a friend asks "how fast are we going?" you glance at the speedometer. They're really asking for the speed at that exact instant — the <strong class="lead-word">instantaneous speed</strong>. If the speedometer reads 60 mph, that's your speed right now. A few seconds later, as traffic and road conditions change, it may read something else entirely.</p>
 
   <figure>
-    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Speedometer_(kmh).JPG" alt="A car speedometer">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/65/Speedometer_%28kmh%29.JPG" alt="A car speedometer">
     <figcaption>A speedometer only ever reports instantaneous speed — what's happening right now.</figcaption>
   </figure>
 </section>
@@ -237,11 +238,11 @@ v = <strong>46.4 mph</strong></div>
 
   <div class="figure-row">
     <figure>
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ferrari_F14_T_cockpit.jpg" alt="Race car cockpit with speedometer">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Ferrari_F14_T_cockpit.jpg" alt="Race car cockpit with speedometer">
       <figcaption>A racer watches speed — a single number.</figcaption>
     </figure>
     <figure>
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Six_flight_instruments.JPG" alt="Aircraft instrument panel including a heading indicator">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/07/Six_flight_instruments.JPG" alt="Aircraft instrument panel including a heading indicator">
       <figcaption>A pilot watches velocity — speed plus heading.</figcaption>
     </figure>
   </div>
@@ -383,7 +384,7 @@ v = <strong>46.4 mph</strong></div>
 
 <section id="camera-photo">
   <figure>
-    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Point_to_Point_Speed_Cameras.jpg" alt="Point-to-point average speed cameras on a highway" style="max-width:100%;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/79/Point_to_Point_Speed_Cameras.jpg" alt="Point-to-point average speed cameras on a highway" style="max-width:100%;">
     <figcaption>Point-to-point cameras like these calculate average speed = distance ÷ time between two fixed points, rather than clocking one instant.</figcaption>
   </figure>
   <p>That's a real design choice with real consequences — a car could speed dangerously for a few seconds in the middle of a zone and still average out to a legal speed by the time it reaches the second camera. Next class, you'll step into the role of a traffic engineer and decide whether that's a flaw or a feature.</p>
