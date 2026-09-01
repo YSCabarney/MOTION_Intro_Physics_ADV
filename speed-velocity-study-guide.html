@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Speed & Velocity — Study Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14171C;
+    --paper:#F4F5F7;
+    --paper-line:#DCDFE3;
+    --blue:#2C5FAA;
+    --blue-dark:#1E4278;
+    --amber:#C97F1E;
+    --red:#B23A32;
+    --green:#3C7A5A;
+    --cream:#FBFBFA;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    background-image: repeating-linear-gradient(115deg, rgba(44,95,170,0.045) 0px, rgba(44,95,170,0.045) 2px, transparent 2px, transparent 34px);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px 80px;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+
+  header.hero{
+    background:var(--ink);
+    background-image: repeating-linear-gradient(115deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 2px, transparent 2px, transparent 34px);
+    color:var(--cream);
+    padding:56px 24px 48px;
+  }
+  .hero-inner{max-width:760px;margin:0 auto;}
+  .tag{font-family:'IBM Plex Mono',monospace;font-size:13px;color:#8FB2E0;letter-spacing:.03em;margin:0 0 18px;text-transform:uppercase;}
+  h1.title{
+    font-family:'Oswald',sans-serif;
+    font-weight:600;
+    font-size:46px;
+    letter-spacing:.01em;
+    line-height:1.08;
+    margin:0 0 16px;
+    max-width:14ch;
+    text-transform:uppercase;
+  }
+  .hero p.lede{font-size:17px;max-width:54ch;color:#C7CEDA;margin:0;}
+
+  section{padding:50px 0;border-bottom:1px solid var(--paper-line);}
+  section:last-of-type{border-bottom:none;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--blue);margin:0 0 10px;text-transform:uppercase;letter-spacing:.03em;}
+  h2{
+    font-family:'Oswald',sans-serif;
+    font-weight:600;
+    font-size:29px;
+    margin:0 0 18px;
+    max-width:22ch;
+    text-transform:uppercase;
+    letter-spacing:.005em;
+  }
+  h3{font-family:'Oswald',sans-serif;font-weight:500;font-size:19px;margin:26px 0 10px;text-transform:uppercase;}
+  p{max-width:66ch;margin:0 0 16px;font-size:16px;}
+  strong{color:var(--ink);}
+  .lead-word{color:var(--blue-dark);font-weight:600;}
+
+  figure{margin:24px 0;}
+  figure img{width:100%;max-width:420px;display:block;border:1px solid var(--paper-line);}
+  figcaption{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#5b6472;margin-top:8px;max-width:420px;}
+  .figure-row{display:flex;gap:20px;flex-wrap:wrap;}
+  .figure-row figure{flex:1 1 180px;margin:24px 0;}
+  .figure-row img{max-width:100%;}
+
+  table{border-collapse:collapse;width:100%;margin:20px 0;font-size:15px;}
+  caption{text-align:left;font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#5b6472;margin-bottom:8px;}
+  th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--paper-line);}
+  th{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:13px;color:var(--blue);border-bottom:2px solid var(--blue);}
+  td.n{font-family:'IBM Plex Mono',monospace;}
+
+  .callout{background:var(--cream);border-left:4px solid var(--amber);padding:20px 24px;margin:24px 0;}
+  .callout p:last-child{margin-bottom:0;}
+  .callout .k{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--amber);margin:0 0 8px;text-transform:uppercase;}
+
+  .band{background:var(--ink);color:var(--cream);margin:0 -24px;padding:44px 24px;}
+  .band .wrap-in{max-width:712px;margin:0 auto;}
+  .band h2{color:var(--cream);}
+  .band .eyebrow{color:#8FB2E0;}
+  .band p{color:#C7CEDA;}
+  .band-red{background:var(--red);}
+  .band-red .eyebrow{color:#F3D2CD;}
+  .band-red p{color:#F6E3E0;}
+
+  .formula{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:22px;
+    background:var(--cream);
+    border:1px solid var(--paper-line);
+    padding:18px 22px;
+    display:inline-block;
+    margin:16px 0;
+  }
+
+  .steps{counter-reset:step;list-style:none;padding:0;margin:18px 0;}
+  .steps li{
+    counter-increment:step;
+    position:relative;
+    padding:4px 0 4px 40px;
+    margin-bottom:14px;
+    max-width:60ch;
+  }
+  .steps li::before{
+    content:counter(step);
+    position:absolute;left:0;top:2px;
+    width:26px;height:26px;
+    background:var(--blue);color:#fff;
+    border-radius:2px;
+    font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;
+    display:flex;align-items:center;justify-content:center;
+  }
+
+  .worked{background:var(--cream);border:1px solid var(--paper-line);padding:20px 22px;margin:18px 0;}
+  .worked .lbl{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--blue);margin:0 0 6px;text-transform:uppercase;}
+  .worked .work{font-family:'IBM Plex Mono',monospace;font-size:14.5px;background:#fff;border:1px solid var(--paper-line);padding:10px 14px;margin:8px 0;white-space:pre-wrap;line-height:1.7;}
+
+  details{background:var(--cream);border:1px solid var(--paper-line);padding:14px 18px;margin:14px 0;}
+  summary{cursor:pointer;font-weight:600;font-family:'Inter',sans-serif;}
+  details p{margin-top:12px;margin-bottom:0;}
+
+  .graph-card{border:1px solid var(--paper-line);background:#fff;padding:14px 16px;margin:18px 0;}
+  .graph-card .gtitle{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--blue);margin-bottom:6px;text-transform:uppercase;}
+  .graph-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media(max-width:560px){.graph-grid{grid-template-columns:1fr;}}
+
+  ul{padding-left:20px;}
+  li{margin-bottom:8px;max-width:60ch;}
+
+  footer{padding:36px 24px 60px;text-align:left;}
+  footer p{color:#5b6472;font-size:14px;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <p class="tag">Physics · Speed and Velocity</p>
+    <h1 class="title">Speed & Velocity</h1>
+    <p class="lede">How fast, and how fast in which direction — two questions that sound the same and aren't. This guide walks through both, then sets up a real 2026 fight over how a speed camera should measure you at all.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+<section id="inst-speed">
+  <p class="eyebrow">01</p>
+  <h2>Instantaneous Speed</h2>
+  <p>When an object changes position, we say it's in <strong class="lead-word">motion</strong>. The most common thing we notice about a moving object is how fast it's moving — in everyday language, its <strong class="lead-word">speed</strong>.</p>
+  <p>Think about a car ride. If a friend asks "how fast are we going?" you glance at the speedometer. They're really asking for the speed at that exact instant — the <strong class="lead-word">instantaneous speed</strong>. If the speedometer reads 60 mph, that's your speed right now. A few seconds later, as traffic and road conditions change, it may read something else entirely.</p>
+
+  <figure>
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Speedometer_(kmh).JPG" alt="A car speedometer">
+    <figcaption>A speedometer only ever reports instantaneous speed — what's happening right now.</figcaption>
+  </figure>
+</section>
+
+<section id="avg-speed">
+  <p class="eyebrow">02</p>
+  <h2>Average Speed</h2>
+  <p>Objects don't move at one constant speed for an entire trip. On a drive to work you might hit 25 mph in a neighborhood, 45 mph on a main road, and 5 mph crawling through a parking garage — plus stops at every red light. No two trips look alike.</p>
+  <p>That's why we distinguish instantaneous speed from <strong class="lead-word">average speed</strong>: the total distance covered during a trip, divided by the total time the trip took. That time is called the <strong>elapsed time</strong> or <strong>time interval</strong>.</p>
+
+  <div class="formula">average speed = total distance ÷ time interval <span class="mono">&nbsp;→&nbsp; v = d/t</span></div>
+
+  <div class="worked">
+    <p class="lbl">Worked example — the three-part method</p>
+    <p>Every problem like this gets solved the same way: (1) list your <strong>givens</strong> — including the unknown you're solving for, (2) write the <strong>equation</strong> that relates them, (3) show <strong>all the work</strong>, ending in a numerical answer with units.</p>
+    <p><em>The 313-mile Pennsylvania Turnpike was begun in 1940 and completed in 1970. The Jackson family drove the entire length in 6 hours and 45 minutes. Find their average speed in miles per hour.</em></p>
+    <div class="work">Step 1 — Givens
+d = 313 miles
+t = 6 hours 45 min = 6.75 hours
+Find: average speed (v)
+
+Step 2 — Equation
+v = d / t
+
+Step 3 — Solve
+v = 313 mi / 6.75 hr
+v = <strong>46.4 mph</strong></div>
+  </div>
+</section>
+
+<div class="band">
+  <div class="wrap-in">
+    <p class="eyebrow">What Is Velocity?</p>
+    <h2>"Speed" and "velocity" aren't interchangeable</h2>
+    <p>Students often use these two words as synonyms. They're not. The difference comes down to <strong>direction</strong> — and it's about to matter a lot more than you'd think.</p>
+  </div>
+</div>
+
+<section id="distance-displacement">
+  <h3>Distance vs. Displacement</h3>
+  <p><strong class="lead-word">Distance</strong> is a measure of how far an object moves, with no regard to direction. It's a <strong>scalar</strong> quantity, completely described by a single number — "2.5 meters."</p>
+  <p><strong class="lead-word">Displacement</strong> is different: it's a <strong>vector</strong> quantity that measures an object's change in position from a starting point to a final point, in a straight line. An example of a displacement is "2.5 meters, to the left." Since it's a vector, displacement has both a magnitude and a direction — a compass heading, or simply "up" or "down."</p>
+
+  <div class="graph-card">
+    <p class="gtitle">Path traveled vs. straight-line displacement</p>
+    <svg viewBox="0 0 460 220" width="100%" height="auto" role="img" aria-label="Diagram showing a zig-zag path from point A to D representing distance traveled, and a straight red arrow from A to D representing displacement">
+      <line x1="40" y1="170" x2="180" y2="170" stroke="#14171C" stroke-width="3"/>
+      <line x1="180" y1="170" x2="180" y2="90" stroke="#14171C" stroke-width="3"/>
+      <line x1="180" y1="90" x2="260" y2="40" stroke="#14171C" stroke-width="3"/>
+      <line x1="40" y1="170" x2="260" y2="40" stroke="#B23A32" stroke-width="3" marker-end="url(#arrow)"/>
+      <defs>
+        <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+          <path d="M0,0 L8,3 L0,6 Z" fill="#B23A32"/>
+        </marker>
+      </defs>
+      <circle cx="40" cy="170" r="4" fill="#14171C"/>
+      <circle cx="180" cy="170" r="4" fill="#14171C"/>
+      <circle cx="180" cy="90" r="4" fill="#14171C"/>
+      <circle cx="260" cy="40" r="4" fill="#14171C"/>
+      <text x="30" y="192" font-family="IBM Plex Mono" font-size="14" fill="#14171C">A</text>
+      <text x="185" y="188" font-family="IBM Plex Mono" font-size="14" fill="#14171C">B</text>
+      <text x="150" y="88" font-family="IBM Plex Mono" font-size="14" fill="#14171C">C</text>
+      <text x="266" y="38" font-family="IBM Plex Mono" font-size="14" fill="#14171C">D</text>
+      <text x="290" y="120" font-family="Inter" font-size="13" fill="#B23A32">displacement</text>
+      <text x="60" y="150" font-family="Inter" font-size="13" fill="#3a4354">distance traveled</text>
+    </svg>
+  </div>
+  <p>The black path (A→B→C→D) is the route actually traveled — its total length is the <strong>distance</strong>. The red arrow, drawn straight from start (A) to finish (D), is the <strong>displacement</strong>. Notice displacement can be much shorter than distance, since it ignores every twist and turn along the way.</p>
+</section>
+
+<section id="avg-velocity">
+  <h3>Average Velocity</h3>
+  <p>When we say a car is "moving 55 mph," we're stating its speed — a scalar. If we add a direction — "55 mph, north" — we're now stating its <strong class="lead-word">velocity</strong>. A race car driver is primarily concerned with speed: how fast the car is going. An airplane pilot is primarily concerned with velocity: how fast <em>and in what direction</em> the plane is flying.</p>
+
+  <div class="figure-row">
+    <figure>
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ferrari_F14_T_cockpit.jpg" alt="Race car cockpit with speedometer">
+      <figcaption>A racer watches speed — a single number.</figcaption>
+    </figure>
+    <figure>
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Six_flight_instruments.JPG" alt="Aircraft instrument panel including a heading indicator">
+      <figcaption>A pilot watches velocity — speed plus heading.</figcaption>
+    </figure>
+  </div>
+
+  <p><strong class="lead-word">Average velocity</strong> is defined as the displacement during a trip divided by the total time for the trip:</p>
+  <div class="formula">average velocity = displacement ÷ time interval <span class="mono">&nbsp;→&nbsp; v = d/t</span></div>
+  <p>This equation looks identical to average speed — same letters, same shape. The difference is entirely in what the symbols mean: distance and speed are scalars (magnitude only), while displacement and velocity are vectors (magnitude <em>and</em> direction). Many textbooks print vector quantities in bold to remind you.</p>
+
+  <h3>Change in Velocity, and Instantaneous Velocity</h3>
+  <p>Because velocity is a vector, a change in <em>either</em> speed <em>or</em> direction counts as a change in velocity — even if the speedometer reading never moves. A car rounding a curve at a perfectly steady 40 mph is still changing velocity the whole time it's turning.</p>
+  <p>Just like with speed, we distinguish <strong>average velocity</strong> from <strong class="lead-word">instantaneous velocity</strong> — the velocity at one specific instant. If an object moves at a constant, unchanging velocity, its average and instantaneous velocities are identical.</p>
+
+  <h3>Velocity Units</h3>
+  <p>Any combination of a displacement unit and a time unit, following v = d/t, can express velocity — as long as a direction rides along with it. For example: centimeters per second, north (cm/s, N); miles per hour, west (mph, W); or meters per second, up (m/s, up).</p>
+</section>
+
+<section id="graphs">
+  <p class="eyebrow">Reading Motion Graphs</p>
+  <h2>What a graph's shape tells you</h2>
+  <p>A position-vs-time or speed-vs-time graph is a compressed story of an object's whole trip. Before looking at the six graphs below, here's the pattern to look for:</p>
+  <table>
+    <caption>Reading a position-vs-time graph</caption>
+    <thead><tr><th>Line shape</th><th>What it means</th></tr></thead>
+    <tbody>
+      <tr><td>Flat (horizontal)</td><td>Object is at rest — position isn't changing</td></tr>
+      <tr><td>Straight line, sloped up</td><td>Constant positive velocity — steady speed, moving away</td></tr>
+      <tr><td>Straight line, sloped down</td><td>Constant negative velocity — steady speed, moving back</td></tr>
+      <tr><td>Steeper slope</td><td>Faster speed (same direction)</td></tr>
+    </tbody>
+  </table>
+
+  <p>Try describing the motion in each graph below yourself before revealing the answer.</p>
+
+  <div class="graph-grid">
+    <div class="graph-card">
+      <p class="gtitle">Graph 1 — Position vs. Time</p>
+      <svg viewBox="0 0 300 190" width="100%" height="auto">
+        <line x1="40" y1="170" x2="280" y2="170" stroke="#DCDFE3"/>
+        <line x1="40" y1="10" x2="40" y2="170" stroke="#DCDFE3"/>
+        <polyline points="40,170 88,143 136,117 184,90 232,63 280,37" fill="none" stroke="#2C5FAA" stroke-width="3"/>
+        <text x="130" y="185" font-family="IBM Plex Mono" font-size="11" fill="#5b6472">Time (s)</text>
+        <text x="6" y="95" font-family="IBM Plex Mono" font-size="11" fill="#5b6472" transform="rotate(-90 12 95)">Position (m)</text>
+      </svg>
+      <details><summary>Describe the motion</summary><p>Constant positive velocity — position increases steadily (5 m every second), so the object moves away from the start at a steady speed.</p></details>
+    </div>
+
+    <div class="graph-card">
+      <p class="gtitle">Graph 2 — Position vs. Time</p>
+      <svg viewBox="0 0 300 190" width="100%" height="auto">
+        <line x1="40" y1="170" x2="280" y2="170" stroke="#DCDFE3"/>
+        <line x1="40" y1="10" x2="40" y2="170" stroke="#DCDFE3"/>
+        <polyline points="40,37 88,63 136,90 184,117 232,143 280,170" fill="none" stroke="#2C5FAA" stroke-width="3"/>
+        <text x="130" y="185" font-family="IBM Plex Mono" font-size="11" fill="#5b6472">Time (s)</text>
+        <text x="6" y="95" font-family="IBM Plex Mono" font-size="11" fill="#5b6472" transform="rotate(-90 12 95)">Position (m)</text>
+      </svg>
+      <details><summary>Describe the motion</summary><p>Constant negative velocity — position decreases steadily, so the object moves back toward the start at a steady speed.</p></details>
+    </div>
+
+    <div class="graph-card">
+      <p class="gtitle">Graph 3 — Position vs. Time</p>
+      <svg viewBox="0 0 300 190" width="100%" height="auto">
+        <line x1="40" y1="170" x2="280" y2="170" stroke="#DCDFE3"/>
+        <line x1="40" y1="10" x2="40" y2="170" stroke="#DCDFE3"/>
+        <polyline points="40,117 280,117" fill="none" stroke="#2C5FAA" stroke-width="3"/>
+        <text x="130" y="185" font-family="IBM Plex Mono" font-size="11" fill="#5b6472">Time (s)</text>
+        <text x="6" y="95" font-family="IBM Plex Mono" font-size="11" fill="#5b6472" transform="rotate(-90 12 95)">Position (m)</text>
+      </svg>
+      <details><summary>Describe the motion</summary><p>The object is at rest. Position never changes, so velocity is zero the whole time.</p></details>
+    </div>
+
+    <div class="graph-card">
+      <p class="gtitle">Graph 4 — Position vs. Time</p>
+      <svg viewBox="0 0 300 190" width="100%" height="auto">
+        <line x1="40" y1="170" x2="280" y2="170" stroke="#DCDFE3"/>
+        <line x1="40" y1="10" x2="40" y2="170" stroke="#DCDFE3"/>
+        <polyline points="40,170 80,113 120,56 160,56 200,56 240,113 280,170" fill="none" stroke="#2C5FAA" stroke-width="3"/>
+        <text x="130" y="185" font-family="IBM Plex Mono" font-size="11" fill="#5b6472">Time (s)</text>
+        <text x="6" y="95" font-family="IBM Plex Mono" font-size="11" fill="#5b6472" transform="rotate(-90 12 95)">Position (m)</text>
+      </svg>
+      <details><summary>Describe the motion</summary><p>The object moves away from the start, stops and stays still for a while, then returns to the start — a there-and-back trip with a pause in the middle.</p></details>
+    </div>
+
+    <div class="graph-card">
+      <p class="gtitle">Graph 5 — Speed vs. Time</p>
+      <svg viewBox="0 0 300 190" width="100%" height="auto">
+        <line x1="40" y1="170" x2="280" y2="170" stroke="#DCDFE3"/>
+        <line x1="40" y1="10" x2="40" y2="170" stroke="#DCDFE3"/>
+        <polyline points="40,170 88,143 136,117 184,90 232,63 280,37" fill="none" stroke="#C97F1E" stroke-width="3"/>
+        <text x="130" y="185" font-family="IBM Plex Mono" font-size="11" fill="#5b6472">Time (s)</text>
+        <text x="6" y="95" font-family="IBM Plex Mono" font-size="11" fill="#5b6472" transform="rotate(-90 12 95)">Speed (m/s)</text>
+      </svg>
+      <details><summary>Describe the motion</summary><p>The object is speeding up at a steady rate — its speed increases the same amount every second. This is acceleration.</p></details>
+    </div>
+
+    <div class="graph-card">
+      <p class="gtitle">Graph 6 — Speed vs. Time</p>
+      <svg viewBox="0 0 300 190" width="100%" height="auto">
+        <line x1="40" y1="170" x2="280" y2="170" stroke="#DCDFE3"/>
+        <line x1="40" y1="10" x2="40" y2="170" stroke="#DCDFE3"/>
+        <polyline points="40,56 280,56" fill="none" stroke="#C97F1E" stroke-width="3"/>
+        <text x="130" y="185" font-family="IBM Plex Mono" font-size="11" fill="#5b6472">Time (s)</text>
+        <text x="6" y="95" font-family="IBM Plex Mono" font-size="11" fill="#5b6472" transform="rotate(-90 12 95)">Speed (m/s)</text>
+      </svg>
+      <details><summary>Describe the motion</summary><p>Constant speed — a flat line on a speed-vs-time graph means the object isn't speeding up or slowing down. (It could still be turning, which would still change its velocity.)</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="ticker-tape">
+  <p class="eyebrow">Recording Motion</p>
+  <h2>Ticker Tape Diagrams</h2>
+  <p>Imagine a car leaking one drop of oil every second as it drives in a straight line. The spacing between drops reveals the car's motion: evenly spaced drops mean a steady speed; drops spreading further apart mean the car is speeding up; drops bunching closer together mean it's slowing down.</p>
+  <p>Ticker tape analysis works the same way, minus the mess: a strip of tape is pulled through a device that marks a dot at a fixed time interval, leaving a permanent trail of the object's motion.</p>
+
+  <div class="graph-card">
+    <p class="gtitle">Three ticker tapes — what's each one doing?</p>
+    <svg viewBox="0 0 460 150" width="100%" height="auto">
+      <text x="0" y="16" font-family="Inter" font-size="12" fill="#3a4354">Constant velocity</text>
+      <circle cx="30" cy="30" r="4" fill="#2C5FAA"/><circle cx="70" cy="30" r="4" fill="#2C5FAA"/><circle cx="110" cy="30" r="4" fill="#2C5FAA"/><circle cx="150" cy="30" r="4" fill="#2C5FAA"/><circle cx="190" cy="30" r="4" fill="#2C5FAA"/><circle cx="230" cy="30" r="4" fill="#2C5FAA"/><circle cx="270" cy="30" r="4" fill="#2C5FAA"/>
+
+      <text x="0" y="66" font-family="Inter" font-size="12" fill="#3a4354">Speeding up</text>
+      <circle cx="30" cy="80" r="4" fill="#C97F1E"/><circle cx="50" cy="80" r="4" fill="#C97F1E"/><circle cx="78" cy="80" r="4" fill="#C97F1E"/><circle cx="114" cy="80" r="4" fill="#C97F1E"/><circle cx="158" cy="80" r="4" fill="#C97F1E"/><circle cx="210" cy="80" r="4" fill="#C97F1E"/><circle cx="270" cy="80" r="4" fill="#C97F1E"/>
+
+      <text x="0" y="116" font-family="Inter" font-size="12" fill="#3a4354">Slowing down</text>
+      <circle cx="30" cy="130" r="4" fill="#B23A32"/><circle cx="90" cy="130" r="4" fill="#B23A32"/><circle cx="142" cy="130" r="4" fill="#B23A32"/><circle cx="186" cy="130" r="4" fill="#B23A32"/><circle cx="222" cy="130" r="4" fill="#B23A32"/><circle cx="250" cy="130" r="4" fill="#B23A32"/><circle cx="270" cy="130" r="4" fill="#B23A32"/>
+    </svg>
+  </div>
+  <p>Each dot still represents the same one-second interval — only the <em>spacing</em> changes, and that spacing is the whole story.</p>
+</section>
+
+<div class="band band-red">
+  <div class="wrap-in">
+    <p class="eyebrow">In the news — 2026</p>
+    <h2>Which speed is a speed camera even measuring?</h2>
+    <p>Automated speed cameras are expanding fast across the U.S. in 2026 — new school-zone cameras across Florida, and California preparing to activate them in Los Angeles — and drivers are pushing back hard, with some calling it less about safety and more about revenue.</p>
+    <p>Almost every camera in that debate measures <strong>instantaneous speed</strong> at a single point. But a different design exists — a <strong>point-to-point</strong> or "average speed" camera — that clocks a car entering and leaving a zone and calculates <strong>average speed</strong> from distance and time, exactly like the formula in this guide.</p>
+  </div>
+</div>
+
+<section id="camera-photo">
+  <figure>
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Point_to_Point_Speed_Cameras.jpg" alt="Point-to-point average speed cameras on a highway" style="max-width:100%;">
+    <figcaption>Point-to-point cameras like these calculate average speed = distance ÷ time between two fixed points, rather than clocking one instant.</figcaption>
+  </figure>
+  <p>That's a real design choice with real consequences — a car could speed dangerously for a few seconds in the middle of a zone and still average out to a legal speed by the time it reaches the second camera. Next class, you'll step into the role of a traffic engineer and decide whether that's a flaw or a feature.</p>
+</section>
+
+<section id="review">
+  <p class="eyebrow">Quick self-check</p>
+  <h2>Before you move on</h2>
+
+  <details>
+    <summary>What's the difference between speed and velocity?</summary>
+    <p>Speed is a scalar — just a magnitude, like "60 mph." Velocity is a vector — a magnitude and a direction, like "60 mph, north." The same is true of their underlying quantities: distance (scalar) vs. displacement (vector).</p>
+  </details>
+
+  <details>
+    <summary>A car drives in a large circle at a perfectly steady 40 mph and returns to its starting point. Describe its speed and velocity over the trip.</summary>
+    <p>Its speed never changes — a steady 40 mph the whole time. But its velocity is constantly changing, because direction is constantly changing as it turns. At the end, since it's back where it started, its total displacement is zero — meaning its average velocity for the whole trip is zero, even though it never stopped moving.</p>
+  </details>
+
+  <details>
+    <summary>Why can average speed and instantaneous speed give two different answers for the same trip?</summary>
+    <p>Instantaneous speed is a single snapshot in time. Average speed smooths an entire trip — including every stop, slowdown, and burst of speed — into one number. A trip full of stop-and-go traffic can have a low average speed even if the instantaneous speedometer reading spiked well above it at moments along the way.</p>
+  </details>
+
+  <details>
+    <summary>Write both the average speed and average velocity formulas from memory.</summary>
+    <p>Average speed = total distance ÷ time interval. Average velocity = displacement ÷ time interval. Same shape, different quantities — one scalar, one vector.</p>
+  </details>
+</section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>Physics — Speed and Velocity · Study guide compiled for class review</p>
+  </div>
+</footer>
+
+</body>
+</html>
