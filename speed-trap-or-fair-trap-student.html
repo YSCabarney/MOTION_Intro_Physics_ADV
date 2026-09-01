@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Speed Trap or Fair Trap? — Case File</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14171C;
+    --paper:#F4F5F7;
+    --paper-line:#DCDFE3;
+    --blue:#2C5FAA;
+    --blue-dark:#1E4278;
+    --amber:#C97F1E;
+    --red:#B23A32;
+    --cream:#FBFBFA;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;background:var(--paper);
+    background-image: repeating-linear-gradient(115deg, rgba(44,95,170,0.045) 0px, rgba(44,95,170,0.045) 2px, transparent 2px, transparent 34px);
+    color:var(--ink);font-family:'Inter',sans-serif;line-height:1.6;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px 80px;}
+  header.hero{
+    background:var(--ink);
+    background-image: repeating-linear-gradient(115deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 2px, transparent 2px, transparent 34px);
+    color:var(--cream);padding:52px 24px 44px;
+  }
+  .hero-inner{max-width:760px;margin:0 auto;}
+  .tag{font-family:'IBM Plex Mono',monospace;font-size:13px;color:#8FB2E0;margin:0 0 18px;text-transform:uppercase;letter-spacing:.03em;}
+  h1.title{font-family:'Oswald',sans-serif;font-weight:600;font-size:40px;line-height:1.12;margin:0 0 16px;max-width:16ch;text-transform:uppercase;}
+  .hero p.lede{font-size:17px;max-width:56ch;color:#C7CEDA;margin:0 0 8px;}
+  .meta-row{display:flex;gap:28px;flex-wrap:wrap;margin-top:24px;}
+  .meta-item{font-family:'IBM Plex Mono',monospace;font-size:13px;color:#8FB2E0;}
+  .meta-item b{display:block;font-size:19px;color:var(--cream);font-family:'Oswald',sans-serif;font-weight:600;}
+
+  section{padding:44px 0;border-bottom:1px solid var(--paper-line);}
+  section:last-of-type{border-bottom:none;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--blue);margin:0 0 10px;text-transform:uppercase;letter-spacing:.03em;}
+  h2{font-family:'Oswald',sans-serif;font-weight:600;font-size:27px;margin:0 0 16px;max-width:24ch;text-transform:uppercase;}
+  h3{font-family:'Oswald',sans-serif;font-weight:500;font-size:19px;margin:26px 0 10px;text-transform:uppercase;}
+  p{max-width:66ch;margin:0 0 16px;font-size:16px;}
+  strong{color:var(--ink);}
+  ul,ol{padding-left:20px;}
+  li{margin-bottom:8px;max-width:62ch;}
+
+  .callout{background:var(--cream);border-left:4px solid var(--amber);padding:20px 24px;margin:22px 0;}
+  .callout .k{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--amber);margin:0 0 8px;text-transform:uppercase;}
+  .callout p:last-child{margin-bottom:0;}
+
+  .band{background:var(--ink);color:var(--cream);margin:0 -24px;padding:40px 24px;}
+  .band .wrap-in{max-width:712px;margin:0 auto;}
+  .band h2{color:var(--cream);}
+  .band .eyebrow{color:#8FB2E0;}
+  .band p{color:#C7CEDA;}
+
+  .formula{font-family:'IBM Plex Mono',monospace;font-size:20px;background:var(--cream);border:1px solid var(--paper-line);padding:14px 20px;display:inline-block;margin:12px 0;}
+
+  .case-card{border:1px solid var(--paper-line);background:var(--cream);padding:20px 22px;margin:16px 0;}
+  .case-card .label{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--blue-dark);margin-bottom:4px;text-transform:uppercase;}
+  .case-card .story{font-size:14px;color:#3a4354;margin-bottom:10px;}
+  .case-card .data{display:flex;gap:32px;flex-wrap:wrap;margin:10px 0;}
+  .case-card .data div b{font-family:'IBM Plex Mono',monospace;font-size:20px;display:block;}
+  .case-card .data div span{font-size:13px;color:#5b6472;}
+
+  .worksheet{border:1px dashed var(--paper-line);background:var(--cream);padding:16px 20px;margin:14px 0;}
+  .worksheet .k{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--blue);margin:0 0 10px;text-transform:uppercase;}
+  .worksheet .line{border-bottom:1px solid var(--paper-line);height:28px;margin:10px 0;}
+
+  figure{margin:20px 0;}
+  figure img{width:100%;max-width:480px;display:block;border:1px solid var(--paper-line);}
+  figcaption{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#5b6472;margin-top:8px;}
+
+  footer{padding:32px 24px 56px;}
+  footer p{color:#5b6472;font-size:14px;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <p class="tag">Physics · Investigation</p>
+    <h1 class="title">Speed Trap or Fair Trap?</h1>
+    <p class="lede">Your city is piloting a new kind of speed camera. Before it goes live, the council wants to know: does it actually catch dangerous driving — or does it let some of the most dangerous moments slip through completely legal?</p>
+    <div class="meta-row">
+      <div class="meta-item"><b>v = d/t</b>your only tool</div>
+      <div class="meta-item"><b>Work with</b>your group</div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<section id="brief">
+  <p class="eyebrow">The situation</p>
+  <h2>A real, live fight over what a speed camera should measure</h2>
+  <p>Automated speed cameras are spreading fast across the U.S. right now. Florida has rolled out school-zone cameras statewide, and Los Angeles is preparing to activate its own network. Drivers are fighting back — some call it a genuine safety measure, others call it "a money grab." Almost nobody is asking the physics question underneath it all: <strong>what is the camera actually measuring?</strong></p>
+  <p>Most cameras clock <strong>instantaneous speed</strong> — one snapshot, one point on the road. Your city is piloting something different: a <strong>point-to-point</strong> system that records a car entering and leaving a zone, then calculates <strong>average speed</strong> from distance and time. You're the investigation team deciding whether that system is actually fair.</p>
+</section>
+
+<div class="band">
+  <div class="wrap-in">
+    <p class="eyebrow">Your tool</p>
+    <h2>The pilot corridor</h2>
+    <div class="formula">average speed = distance ÷ time</div>
+    <p>Corridor length: <strong>1.0 mile</strong>. Posted limit: <strong>45 mph</strong>. Two cameras mark the exact second each car enters and exits. At the legal limit, a car should take <strong>80 seconds</strong> to cross — faster than that, and its average speed is over 45 mph.</p>
+  </div>
+</div>
+
+<section id="case-file">
+  <figure>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/79/Point_to_Point_Speed_Cameras.jpg" alt="Point-to-point average speed cameras on a highway">
+    <figcaption>A real point-to-point camera setup — this is the exact system your pilot corridor is based on.</figcaption>
+  </figure>
+
+  <h3>Four cars, four crossing times</h3>
+  <p>For each car: calculate average speed, decide Ticket or No Ticket, and read the driver's account before you're sure that's the right call.</p>
+
+  <div class="case-card">
+    <p class="label">Car 1</p>
+    <div class="data">
+      <div><b>1.0 mi</b><span>distance</span></div>
+      <div><b>75 sec</b><span>crossing time</span></div>
+    </div>
+    <p class="story">Driver's account: "I drove the whole zone at a steady speed, no braking, no swerving."</p>
+  </div>
+
+  <div class="case-card">
+    <p class="label">Car 2</p>
+    <div class="data">
+      <div><b>1.0 mi</b><span>distance</span></div>
+      <div><b>90 sec</b><span>crossing time</span></div>
+    </div>
+    <p class="story">Driver's account: "Same as always, nice and steady."</p>
+  </div>
+
+  <div class="case-card">
+    <p class="label">Car 3</p>
+    <div class="data">
+      <div><b>1.0 mi</b><span>distance</span></div>
+      <div><b>80 sec</b><span>crossing time</span></div>
+    </div>
+    <p class="story">Driver's account: "I'll admit it — a dog ran near the road, I panicked and hit 65 for a few seconds, then braked hard the rest of the way to make up for it."</p>
+  </div>
+
+  <div class="case-card">
+    <p class="label">Car 4</p>
+    <div class="data">
+      <div><b>1.0 mi</b><span>distance</span></div>
+      <div><b>78 sec</b><span>crossing time</span></div>
+    </div>
+    <p class="story">Driver's account: "I slowed to 25 to let a kid cross mid-block, completely stopped for a second. I probably sped up a bit after that without thinking."</p>
+  </div>
+
+  <p>For each car: what's the average speed? Ticket, or no ticket, under a system that only sees distance and total time — nothing in between?</p>
+
+  <div class="worksheet">
+    <p class="k">Car 1 — average speed, verdict</p>
+    <div class="line"></div><div class="line"></div>
+  </div>
+  <div class="worksheet">
+    <p class="k">Car 2 — average speed, verdict</p>
+    <div class="line"></div><div class="line"></div>
+  </div>
+  <div class="worksheet">
+    <p class="k">Car 3 — average speed, verdict</p>
+    <div class="line"></div><div class="line"></div>
+  </div>
+  <div class="worksheet">
+    <p class="k">Car 4 — average speed, verdict</p>
+    <div class="line"></div><div class="line"></div>
+  </div>
+
+  <div class="callout">
+    <p class="k">Before you report back</p>
+    <p>Two of these cars are going to spark real disagreement in the room. If your group is torn on a verdict, that's not a sign you did the math wrong — write down both sides of the argument and be ready to make your case.</p>
+  </div>
+</section>
+
+<section id="twist">
+  <p class="eyebrow">One more thing to think about</p>
+  <h2>Distance, or displacement?</h2>
+  <p>Here's a detail that hasn't come up yet: the school zone isn't perfectly straight — it curves slightly along the road. The <strong>distance</strong> a car actually drives through the curve is 1.0 mile, but the straight-line <strong>displacement</strong> between the two camera points is only 0.92 miles.</p>
+  <p>Discuss with your group: if the system used displacement instead of distance for Car 1's calculation, what would happen to its result? Would Car 1's verdict change? Be ready to explain your reasoning — including which quantity (speed or velocity) each version of the calculation would actually represent.</p>
+</section>
+
+<section id="wrap">
+  <p class="eyebrow">Be ready to discuss</p>
+  <h2>Closing questions</h2>
+  <ul>
+    <li>Was Car 3 actually safe? Was Car 4 actually dangerous? Does the math answer that, or just the driver's account?</li>
+    <li>If you sat on the city council, would you approve this camera system? What would you want changed first?</li>
+    <li>Why might it matter, legally, whether a speed system uses distance or displacement?</li>
+  </ul>
+</section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>Physics — companion to the Speed &amp; Velocity study guide</p>
+  </div>
+</footer>
+
+</body>
+</html>
